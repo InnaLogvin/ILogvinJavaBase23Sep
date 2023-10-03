@@ -21,13 +21,13 @@ public class ShuttlesNumbers {
         while (number > 0) {
             System.out.println("number: " + number);
             int digit = number % 10;
-            System.out.println("number % 10 (остаток после деления на 10): " + digit);
+            System.out.println("number % 10 (the remainder of number divided by 10 is): " + digit);
 
             if (digit == 4 || digit == 9) {
                 return false;
             }
             number /= 10;
-            System.out.println("number / 10 (без последней цифры): " + number);
+            System.out.println("number / 10 (without the last digit): " + number);
             System.out.println("--------------");
         }
 

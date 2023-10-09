@@ -5,40 +5,37 @@ import java.util.concurrent.ThreadLocalRandom;
 public class RugbyTeams {
 
     public static void main(String[] args) {
-        int[] ageArrayFirstTeam = GenerateAge(25);
-        int[] ageArraySecondTeam = GenerateAge(25);
+        int[] ageArrayFirstTeam = generateAge(25);
+        int[] ageArraySecondTeam = generateAge(25);
 
-        PrintAge(ageArrayFirstTeam, ageArraySecondTeam);
-        float averageAgeFirst = CalculateAverageAge(ageArrayFirstTeam);
+        printAge(ageArrayFirstTeam, ageArraySecondTeam);
+        float averageAgeFirst = calculateAverageAge(ageArrayFirstTeam);
         System.out.println("\nThe average age of the first team is: " + Math.round(averageAgeFirst));
-        float averageAgeSecond = CalculateAverageAge(ageArraySecondTeam);
-        System.out.println("The average age of the first team is: " + Math.round(averageAgeSecond));
+
+        float averageAgeSecond = calculateAverageAge(ageArraySecondTeam);
+        System.out.println("The average age of the second team is: " + Math.round(averageAgeSecond));
 
     }
 
-    public static int[] GenerateAge(int length) {
+    public static int[] generateAge(int length) {
         int[] ageArray = new int[length];
 
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < ageArray.length; i++) {
             ageArray[i] = ThreadLocalRandom.current().nextInt(18, 41);
         }
         return ageArray;
-
     }
 
-    public static void PrintAge(int[] firstTeamAges, int[] secondTeamAges) {
-        System.out.println("First team ages: ");
-        for (int number : firstTeamAges) {
-            System.out.print(number + " ");
-
-        }
-        System.out.println("\nSecond team ages: ");
-        for (int number : secondTeamAges) {
-            System.out.print(number + " ");
+    public static void printAge(int[]... teamAges) {
+        for (int i = 0; i < teamAges.length; i++) {
+            System.out.println("\nTeam " + (i + 1) + " ages: ");
+            for (int number : teamAges[i]) {
+                System.out.print(number + " ");
+            }
         }
     }
 
-    public static float CalculateAverageAge(int[] teamAges) {
+    public static float calculateAverageAge(int[] teamAges) {
         int totalAge = 0;
         for (int number : teamAges) {
             totalAge += number;

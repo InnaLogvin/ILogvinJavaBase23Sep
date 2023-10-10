@@ -29,7 +29,7 @@ public class Lottery {
 
     public static void bubbleSort(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
-            for (int j = 0; j < array.length -i - 1; j++) {
+            for (int j = 0; j < array.length - i - 1; j++) {
                 if (array[j] > array[j + 1]) {
                     swap(array, j);
                 }
@@ -50,11 +50,12 @@ public class Lottery {
         System.out.println();
     }
 
-    public static int match (int[] arrayCompany, int[] arrayCustomer){
+    public static int match(int[] arrayCompany, int[] arrayCustomer) {
         int count = 0;
-        for (int i = 0; i < arrayCompany.length; i++){
-            if (arrayCompany[i]==arrayCustomer[i])
-            {count++;}
+        for (int i = 0; i < arrayCompany.length; i++) {
+            if (arrayCompany[i] == arrayCustomer[i]) {
+                count++;
+            }
         }
         return count;
     }

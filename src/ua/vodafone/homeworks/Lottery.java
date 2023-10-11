@@ -7,9 +7,14 @@ public class Lottery {
         int[] companyNumbers = generateNumbers(7);
         int[] customerNumbers = generateNumbers(7);
 
+        System.out.println("Original numbers: ");
+        printNumbers(companyNumbers);
+        printNumbers(customerNumbers);
+
         bubbleSort(companyNumbers);
         bubbleSort(customerNumbers);
 
+        System.out.println("Sorted numbers: ");
         printNumbers(companyNumbers);
         printNumbers(customerNumbers);
 

@@ -47,7 +47,7 @@ public class Matrix {
         int[][] transposedMatrix = new int[cols][rows]; //тут вносятся значения наоборот, количество столбцов в рядки и тд
 
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < cols; j++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 transposedMatrix[j][i] = matrix[i][j];//обмен значений исходной матрицы и перевернутой
             }
         }

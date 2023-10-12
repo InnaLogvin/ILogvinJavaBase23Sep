@@ -10,19 +10,19 @@ public class Matrix {
         int row = scanner.nextInt();
         int column = scanner.nextInt();
 
-        int[][] matrix = fillMatrix(row, column);
-        int[][] reversedMatrix = transposeMatrix(matrix);
-        System.out.println("It's a magic! Look at your transposed matrix: ");
+        int[][] matrix = generateMatrix(row, column);
+        System.out.println("Let's look at your matrix:");
+        printMatrix(matrix);
 
-        for (int i = 0; i < reversedMatrix.length; i++) {
-            print(reversedMatrix[i]);
-            System.out.println();
-        }
+        int[][] reversedMatrix = transposeMatrix(matrix);
+        System.out.println("\nIt's a magic! Look at your transposed matrix: ");
+        printMatrix(reversedMatrix);
+
     }
 
-    public static int[][] fillMatrix(int rows, int cols) {
+    public static int[][] generateMatrix(int rows, int cols) {
         int[][] matrix = new int[rows][cols];
-        for (int i = 0; i < rows; i++) {
+        for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < cols; j++) {
                 matrix[i][j] = ThreadLocalRandom.current().nextInt(50);
             }
@@ -31,11 +31,13 @@ public class Matrix {
         return matrix;
     }
 
-    public static void print(int[] array) {
-        for (int value : array) {
-            System.out.print(value + ", ");
+    public static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
         }
-
     }
 
     public static int[][] transposeMatrix(int[][] matrix) {
@@ -44,7 +46,7 @@ public class Matrix {
 
         int[][] transposedMatrix = new int[cols][rows]; //тут вносятся значения наоборот, количество столбцов в рядки и тд
 
-        for (int i = 0; i < rows; i++) {
+        for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < cols; j++) {
                 transposedMatrix[j][i] = matrix[i][j];//обмен значений исходной матрицы и перевернутой
             }

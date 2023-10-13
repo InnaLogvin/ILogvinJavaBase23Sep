@@ -23,7 +23,7 @@ public class Matrix {
     public static int[][] generateMatrix(int rows, int cols) {
         int[][] matrix = new int[rows][cols];
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < cols; j++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 matrix[i][j] = ThreadLocalRandom.current().nextInt(50);
             }
         }

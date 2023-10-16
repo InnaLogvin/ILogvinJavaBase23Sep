@@ -21,9 +21,6 @@ public class StepArray {
         int matrixSum = calculateSum(matrix);
         System.out.println("\nThe sum of all the matrix's elements is: " + matrixSum);
 
-//        int minValue = findMinValue(matrix);
-//        System.out.println("\nThe minimum value of matrix is: " + minValue);
-
         System.out.println("\nHere is your array of the minimum values for every matrix's row: ");
         int[] minRowMatrixValueArray = findMinRowValue(matrix);
         for (int value : minRowMatrixValueArray) {

@@ -21,18 +21,24 @@ public class StepArray {
         int matrixSum = calculateSum(matrix);
         System.out.println("\nThe sum of all the matrix's elements is: " + matrixSum);
 
-        int minValue = findMinValue(matrix);
-        System.out.println("\nThe minimum value of matrix is: " + minValue);
+//        int minValue = findMinValue(matrix);
+//        System.out.println("\nThe minimum value of matrix is: " + minValue);
 
         System.out.println("\nHere is your array of the minimum values for every matrix's row: ");
         int[] minRowMatrixValueArray = findMinRowValue(matrix);
         for (int value : minRowMatrixValueArray) {
             System.out.print(value + ", ");
         }
+        int matrixMinValue = findMatrixMinimum(minRowMatrixValueArray);
+        System.out.println("\n\nThe minimum value of matrix is: " + matrixMinValue);
 
-        divideElementsByMinValue(matrix);
-        System.out.println("\n\nResult after division is: ");
-        printMatrix(matrix);
+        divideElementsByMinValue(matrix, matrixMinValue);
+        if (matrixMinValue != 0) {
+            System.out.println("\nResult after division is: ");
+            printMatrix(matrix);
+        } else {
+            System.out.println("You can't divide by 0!");
+        }
     }
 
 
@@ -40,10 +46,10 @@ public class StepArray {
         int[][] matrix = new int[rows][];
 
         for (int i = 0; i < rows; i++) {
-            int cols = ThreadLocalRandom.current().nextInt(1, maxCols);
+            int cols = ThreadLocalRandom.current().nextInt(0, maxCols);
             matrix[i] = new int[cols];
             for (int j = 0; j < cols; j++) {
-                matrix[i][j] = ThreadLocalRandom.current().nextInt(1, 50);
+                matrix[i][j] = ThreadLocalRandom.current().nextInt(50);
             }
         }
 
@@ -97,39 +103,46 @@ public class StepArray {
         return sum;
     }
 
-    public static int findMinValue(int[][] matrix) {
-        int minValue = matrix[0][0];
-        for (int i = 0; i < matrix.length - 1; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j] < minValue) {
-                    minValue = matrix[i][j];
+
+    public static int[] findMinRowValue(int[][] matrix) {
+        int[] minRowValue = new int[matrix.length];
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix[i].length == 0) {
+                minRowValue[i] = 0;
+            } else {
+                int minValue = matrix[i][0];
+                for (int j = 0; j < matrix[i].length; j++) {
+                    if (matrix[i][j] < minValue) {
+                        minValue = matrix[i][j];
+                    }
                 }
+                minRowValue[i] = minValue;
+            }
+
+        }
+        return minRowValue;
+    }
+
+    public static int findMatrixMinimum(int[] array) {
+        int minValue = array[0];
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] < minValue) {
+                minValue = array[i];
             }
         }
         return minValue;
     }
 
-    public static int[] findMinRowValue(int[][] matrix) {
-        int[] minRowValue = new int[matrix.length];
-        for (int i = 0; i < matrix.length - 1; i++) {
-            int minValue = matrix[i][0];
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j] < minValue) {
-                    minValue = matrix[i][j];
+    public static void divideElementsByMinValue(int[][] matrix, int value) {
+        int matrixMinValue = value;
+        if (matrixMinValue != 0) {
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    matrix[i][j] = matrix[i][j] / matrixMinValue;
                 }
             }
-            minRowValue[i] = minValue;
-        }
-        return minRowValue;
-    }
-
-    public static void divideElementsByMinValue(int[][] matrix) {
-        int absoluteMin = findMinValue(matrix);
-
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = matrix[i][j] / absoluteMin;
-            }
+        } else {
+            System.out.println("Oooops... ");
         }
     }
 

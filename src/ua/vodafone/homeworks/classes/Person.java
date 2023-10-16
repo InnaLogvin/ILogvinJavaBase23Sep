@@ -7,12 +7,13 @@ public class Person {
     private String phoneNumber;
 
     //конструктор Person
-    public Person(String name, String lastName, String city, String phoneNumber) {//цей конструктор ініціалізує поля класу параметрами
+    public Person(String name, String lastName, String city, String phoneNumber) {//цей конструктор ініціалізує поля параметрами
         this.name = name;
         this.lastName = lastName;
         this.city = city;
         this.phoneNumber = phoneNumber;
     }
+
     public String personInfo() {//метод для отримання заданної інфо в параметрах
         return "You can call citizen " + name + " " + lastName + " from " + city + " city by phone number " + phoneNumber + ".";
     }

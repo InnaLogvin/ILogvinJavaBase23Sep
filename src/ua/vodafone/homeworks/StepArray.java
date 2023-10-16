@@ -4,6 +4,8 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class StepArray {
+    private static final int NOT_DEFINED = Integer.MIN_VALUE;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Let's create a huge matrix! Enter the dimensions: 1st one is row's, 2nd one is column's: ");
@@ -23,9 +25,8 @@ public class StepArray {
 
         System.out.println("\nHere is your array of the minimum values for every matrix's row: ");
         int[] minRowMatrixValueArray = findMinRowValue(matrix);
-        for (int value : minRowMatrixValueArray) {
-            System.out.print(value + ", ");
-        }
+        printMinValuesArray(minRowMatrixValueArray);
+
         int matrixMinValue = findMatrixMinimum(minRowMatrixValueArray);
         System.out.println("\n\nThe minimum value of matrix is: " + matrixMinValue);
 
@@ -105,7 +106,7 @@ public class StepArray {
         int[] minRowValue = new int[matrix.length];
         for (int i = 0; i < matrix.length; i++) {
             if (matrix[i].length == 0) {
-                minRowValue[i] = 0;
+                minRowValue[i] = NOT_DEFINED;
             } else {
                 int minValue = matrix[i][0];
                 for (int j = 0; j < matrix[i].length; j++) {
@@ -115,18 +116,21 @@ public class StepArray {
                 }
                 minRowValue[i] = minValue;
             }
-
         }
         return minRowValue;
     }
 
-    public static int findMatrixMinimum(int[] array) {
-        int minValue = array[0];
-        for (int i = 0; i < array.length - 1; i++) {
-            if (array[i] < minValue) {
-                minValue = array[i];
+    public static Integer findMatrixMinimum(int[] array) {
+        int minValue = NOT_DEFINED;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != NOT_DEFINED) {
+                if (minValue == NOT_DEFINED || array[i] < minValue) {
+                    minValue = array[i];
+                }
             }
         }
+
         return minValue;
     }
 
@@ -151,4 +155,15 @@ public class StepArray {
             System.out.println();
         }
     }
+
+    public static void printMinValuesArray(int[] array) {
+        for (int value : array) {
+            if (value == NOT_DEFINED) {
+                System.out.print(" , ");
+            } else {
+                System.out.print(value + ", ");
+            }
+        }
+    }
 }
+

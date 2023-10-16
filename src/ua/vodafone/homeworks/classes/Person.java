@@ -14,7 +14,7 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public String personInfo() {//метод для отримання заданної інфо в параметрах
+    public String personInfo() {//метод для отримання заданної в параметрах інфо
         return "You can call citizen " + name + " " + lastName + " from " + city + " city by phone number " + phoneNumber + ".";
     }
 

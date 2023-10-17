@@ -108,13 +108,7 @@ public class StepArray {
             if (matrix[i].length == 0) {
                 minRowValue[i] = NOT_DEFINED;
             } else {
-                int minValue = matrix[i][0];
-                for (int j = 0; j < matrix[i].length; j++) {
-                    if (matrix[i][j] < minValue) {
-                        minValue = matrix[i][j];
-                    }
-                }
-                minRowValue[i] = minValue;
+                minRowValue[i] = findMatrixMinimum(matrix[i]);
             }
         }
         return minRowValue;
@@ -124,10 +118,8 @@ public class StepArray {
         int minValue = NOT_DEFINED;
 
         for (int i = 0; i < array.length; i++) {
-            if (array[i] != NOT_DEFINED) {
-                if (minValue == NOT_DEFINED || array[i] < minValue) {
-                    minValue = array[i];
-                }
+            if (minValue == NOT_DEFINED || (array[i] != NOT_DEFINED && array[i] < minValue)) {
+                minValue = array[i];
             }
         }
 
@@ -135,11 +127,11 @@ public class StepArray {
     }
 
     public static void divideElementsByMinValue(int[][] matrix, int value) {
-        int matrixMinValue = value;
-        if (matrixMinValue != 0) {
+        int divisionValue = value;
+        if (divisionValue != 0) {
             for (int i = 0; i < matrix.length; i++) {
                 for (int j = 0; j < matrix[i].length; j++) {
-                    matrix[i][j] = matrix[i][j] / matrixMinValue;
+                    matrix[i][j] = matrix[i][j] / divisionValue;
                 }
             }
         } else {

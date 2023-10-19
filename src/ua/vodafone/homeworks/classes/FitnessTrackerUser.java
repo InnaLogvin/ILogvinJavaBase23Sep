@@ -1,12 +1,12 @@
 package ua.vodafone.homeworks.classes;
 
 public class FitnessTrackerUser {
-    private String name; //неизменные
-    private int dayOfBirth; //неизменные
-    private int monthOfBirth; //неизменные
-    private int yearOfBirth; //неизменные
-    private String mail; //неизменные
-    private String phoneNumber; //неизменные
+    private final String name; //неизменные
+    private final int dayOfBirth; //неизменные
+    private final int monthOfBirth; //неизменные
+    private final int yearOfBirth; //неизменные
+    private final String mail; //неизменные
+    private final String phoneNumber; //неизменные
     private String surname;
     private String weight;
     private String bloodPressure;
@@ -46,7 +46,6 @@ public class FitnessTrackerUser {
         return yearOfBirth;
     }
 
-
     public String getMail() {
         return mail;
     }
@@ -82,10 +81,10 @@ public class FitnessTrackerUser {
     }
 
     public void printAccountInfo() {
-        System.out.println("Here is your user: " + name + " " + surname);
-        System.out.println("The date of birth is: " + dayOfBirth + "." + monthOfBirth + "." + yearOfBirth);
-        System.out.println("The age is: " + age);
-        System.out.println("Contact: " + phoneNumber + ", " + mail);
+        System.out.println("Username: " + name + " " + surname);
+        System.out.println("Date of Birth: " + dayOfBirth + "." + monthOfBirth + "." + yearOfBirth);
+        System.out.println("Current Age: " + age);
+        System.out.println("Contact Information: " + phoneNumber + ", " + mail);
         System.out.println("Weight: " + weight);
         System.out.println("Blood pressure: " + bloodPressure);
         System.out.println("Number of steps: " + stepsNumber);

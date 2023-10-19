@@ -24,7 +24,7 @@ public class FitnessTrackerRunner {
         user[3].setStepsNumber(25000);
         user[3].setBloodPressure("165/115");
 
-        System.out.println("\nCheck your updated users:\n");
+        System.out.println("\nCheck all users after updating:\n");
         user[0].printAccountInfo();
         user[1].printAccountInfo();
         user[2].printAccountInfo();

@@ -1,6 +1,7 @@
 package ua.vodafone.homeworks.classes;
 
 public class FitnessTrackerUser {
+    private static final int YEAR = 2023;
     private final String name; //неизменные
     private final int dayOfBirth; //неизменные
     private final int monthOfBirth; //неизменные
@@ -12,7 +13,7 @@ public class FitnessTrackerUser {
     private String bloodPressure;
     private int stepsNumber;
     private int age;
-    private static final int YEAR = 2023;
+
 
     public FitnessTrackerUser(String name, int dayOfBirth, int monthOfBirth, int yearOfBirth,
                               String mail, String phoneNumber, String surname, String weight,
@@ -75,9 +76,7 @@ public class FitnessTrackerUser {
     }
 
     public static int calculateAge(int yearOfBirth) {
-        int age;
-        age = YEAR - yearOfBirth;
-        return age;
+        return YEAR - yearOfBirth;
     }
 
     public void printAccountInfo() {

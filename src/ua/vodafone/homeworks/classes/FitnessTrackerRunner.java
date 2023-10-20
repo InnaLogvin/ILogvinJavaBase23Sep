@@ -13,10 +13,9 @@ public class FitnessTrackerRunner {
                         "0664682101", "Andreev", "80", "180/120", 20000)
 
         };
-        user[0].printAccountInfo();
-        user[1].printAccountInfo();
-        user[2].printAccountInfo();
-        user[3].printAccountInfo();
+        for (int i = 0; i < user.length; i++) {
+            user[i].printAccountInfo();
+        }
 
         user[2].setSurname("Serhienko");
         user[2].setWeight("90");
@@ -25,10 +24,9 @@ public class FitnessTrackerRunner {
         user[3].setBloodPressure("165/115");
 
         System.out.println("\nCheck all users after updating:\n");
-        user[0].printAccountInfo();
-        user[1].printAccountInfo();
-        user[2].printAccountInfo();
-        user[3].printAccountInfo();
+        for (int i = 0; i < user.length; i++) {
+            user[i].printAccountInfo();
+        }
     }
 
 }

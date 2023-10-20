@@ -23,20 +23,16 @@ public class FitnessTrackerRunner {
         user[3].setStepsNumber(25000);
         user[3].setBloodPressure("165/115");
 
-        System.out.println("\nCheck all users after updating:\n");
-        for (int i = 0; i < user.length; i++) {
-            user[i].printAccountInfo();
+        System.out.println("\nCheck updated users:\n");
+        System.out.println(user[2].getName() + " " + user[2].getSurname() + ", " + user[2].getDayOfBirth() + "." +
+                user[2].getMonthOfBirth() + "." + user[2].getYearOfBirth() + ", " + user[2].getMail() + ", " +
+                user[2].getPhoneNumber() + ", " + user[2].getWeight() + ", " + user[2].getBloodPressure() + ", " + user[2].getStepsNumber());
+        System.out.println(user[3].getName() + " " + user[3].getSurname() + ", " + user[3].getDayOfBirth() + "." +
+                user[3].getMonthOfBirth() + "." + user[3].getYearOfBirth() + ", " + user[3].getMail() + ", " +
+                user[3].getPhoneNumber() + ", " + user[3].getWeight() + ", " + user[3].getBloodPressure() + ", " + user[3].getStepsNumber());
 
-            String name = user[0].getName();
-            int dayOfBirth = user[0].getDayOfBirth();
-            int monthOfBirth = user[0].getMonthOfBirth();
-            int yearOfBirth = user[0].getYearOfBirth();
-            String mail = user[0].getMail();
-            String phoneNumber = user[0].getPhoneNumber();
 
-            System.out.println("\nThis information we get with get: " + name + ", " + dayOfBirth + "." + monthOfBirth + "." + yearOfBirth + ", " + mail + ", " + phoneNumber);
-
-        }
     }
-
 }
+
+

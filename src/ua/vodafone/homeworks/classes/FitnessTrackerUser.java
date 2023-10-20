@@ -55,6 +55,22 @@ public class FitnessTrackerUser {
         return phoneNumber;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public String getBloodPressure() {
+        return bloodPressure;
+    }
+
+    public int getStepsNumber() {
+        return stepsNumber;
+    }
+
     public void setSurname(String surname) {
         this.surname = surname;
     }

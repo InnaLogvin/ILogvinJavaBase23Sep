@@ -26,6 +26,16 @@ public class FitnessTrackerRunner {
         System.out.println("\nCheck all users after updating:\n");
         for (int i = 0; i < user.length; i++) {
             user[i].printAccountInfo();
+
+            String name = user[0].getName();
+            int dayOfBirth = user[0].getDayOfBirth();
+            int monthOfBirth = user[0].getMonthOfBirth();
+            int yearOfBirth = user[0].getYearOfBirth();
+            String mail = user[0].getMail();
+            String phoneNumber = user[0].getPhoneNumber();
+
+            System.out.println("\nThis information we get with get: " + name +", "+ dayOfBirth+"."+ monthOfBirth+"."+yearOfBirth +", "+ mail+ ", "+ phoneNumber);
+
         }
     }
 

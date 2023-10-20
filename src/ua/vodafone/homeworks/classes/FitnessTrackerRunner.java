@@ -34,7 +34,7 @@ public class FitnessTrackerRunner {
             String mail = user[0].getMail();
             String phoneNumber = user[0].getPhoneNumber();
 
-            System.out.println("\nThis information we get with get: " + name +", "+ dayOfBirth+"."+ monthOfBirth+"."+yearOfBirth +", "+ mail+ ", "+ phoneNumber);
+            System.out.println("\nThis information we get with get: " + name + ", " + dayOfBirth + "." + monthOfBirth + "." + yearOfBirth + ", " + mail + ", " + phoneNumber);
 
         }
     }

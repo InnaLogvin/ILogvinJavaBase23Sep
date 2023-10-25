@@ -1,16 +1,17 @@
 package ua.vodafone.homeworks.classes;
 
 public class CelsiusFahrenheitConverter extends Converter {
+    private static final double FAHRENHEIT_COEFFICIENT = 1.8;
+    private static final double FAHRENHEIT_CONST = 32;
+
     @Override
-    public double ConverterToAnother(double celsius) {
-        System.out.println("Your Fahrenheit temperature: ");
+    public double convertFromCelsius(double celsius) {
         return celsius * FAHRENHEIT_COEFFICIENT + FAHRENHEIT_CONST;
     }
 
     @Override
-    public double ConverterToCelsius(double fahrenheit) {
-        System.out.println("Your temperature converted from Fahrenheit to Celsius: ");
-        return (fahrenheit - Converter.FAHRENHEIT_CONST) / Converter.FAHRENHEIT_COEFFICIENT;
+    public double convertToCelsius(double fahrenheit) {
+        return (fahrenheit - FAHRENHEIT_CONST) / FAHRENHEIT_COEFFICIENT;
     }
 
 

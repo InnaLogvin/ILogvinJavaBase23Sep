@@ -1,16 +1,15 @@
 package ua.vodafone.homeworks.classes;
 
 public class CelsiusKelvinConverter extends Converter {
+    private static final double KELVIN_CONST = 273.15;
 
     @Override
-    public double ConverterToCelsius(double kelvin) {
-        System.out.println("Your temperature converted from Kelvin to Celsius: ");
-        return (kelvin - Converter.KELVIN_CONST);
+    public double convertToCelsius(double kelvin) {
+        return (kelvin - KELVIN_CONST);
     }
 
     @Override
-    public double ConverterToAnother(double celsius) {
-        System.out.println("Your Kelvin temperature: ");
+    public double convertFromCelsius(double celsius) {
         return celsius + KELVIN_CONST;
     }
 

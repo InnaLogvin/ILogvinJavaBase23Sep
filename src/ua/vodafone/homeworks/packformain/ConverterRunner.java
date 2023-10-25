@@ -5,17 +5,24 @@ import ua.vodafone.homeworks.classes.CelsiusFahrenheitConverter;
 
 public class ConverterRunner {
     public static void main(String[] args) {
+        double celsius = 10;
         CelsiusKelvinConverter toKelvin = new CelsiusKelvinConverter();
-        System.out.println(toKelvin.ConverterToAnother(10));
+        System.out.println(celsius + " °C degrees converted to Kelvin: " +
+                toKelvin.convertFromCelsius(celsius) + " K");
 
         CelsiusFahrenheitConverter toFahrenheit = new CelsiusFahrenheitConverter();
-        System.out.println(toFahrenheit.ConverterToAnother(10));
+        System.out.println(celsius + " °C degrees converted to Fahrenheit: " +
+                toFahrenheit.convertFromCelsius(celsius) + " °F");
 
+        double kelvin = toKelvin.convertFromCelsius(celsius);
         CelsiusKelvinConverter kelvinToCelsius = new CelsiusKelvinConverter();
-        System.out.println(kelvinToCelsius.ConverterToCelsius(283.15));
+        System.out.println(kelvin + " K degrees converted back to Celsius: " +
+                kelvinToCelsius.convertToCelsius(kelvin) + " °C");
 
+        double fahrenheit = toFahrenheit.convertFromCelsius(celsius);
         CelsiusFahrenheitConverter fahrenheitToCelsius = new CelsiusFahrenheitConverter();
-        System.out.println(fahrenheitToCelsius.ConverterToCelsius(50));
+        System.out.println(fahrenheit + " °F degrees converted back to Celsius: " +
+                fahrenheitToCelsius.convertToCelsius(fahrenheit) + " °C");
     }
 
 

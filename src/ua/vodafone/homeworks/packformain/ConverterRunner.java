@@ -1,32 +1,22 @@
 package ua.vodafone.homeworks.packformain;
 
-import ua.vodafone.homeworks.classes.Converter;
-import ua.vodafone.homeworks.classes.CelsiusToKelvin;
-import ua.vodafone.homeworks.classes.CelsiusToFahrenheit;
+import ua.vodafone.homeworks.classes.CelsiusKelvinConverter;
+import ua.vodafone.homeworks.classes.CelsiusFahrenheitConverter;
 
 public class ConverterRunner {
     public static void main(String[] args) {
-        CelsiusToKelvin kelvinConverter = new CelsiusToKelvin();
-        System.out.println(kelvinConverter.CelsiusToKelvin(10));
-        ;
+        CelsiusKelvinConverter toKelvin = new CelsiusKelvinConverter();
+        System.out.println(toKelvin.ConverterToAnother(10));
 
-        CelsiusToFahrenheit fahrenheitConverter = new CelsiusToFahrenheit();
-        System.out.println(fahrenheitConverter.CelsiusToFahrenheit(10));
+        CelsiusFahrenheitConverter toFahrenheit = new CelsiusFahrenheitConverter();
+        System.out.println(toFahrenheit.ConverterToAnother(10));
 
-        double fahrenheitToCelsius = FahrenheitToCelsius(50);
-        System.out.println(fahrenheitToCelsius);
+        CelsiusKelvinConverter kelvinToCelsius = new CelsiusKelvinConverter();
+        System.out.println(kelvinToCelsius.ConverterToCelsius(283.15));
 
-        double kelvinToCelsius = KelvinToCelsius(283.15);
-        System.out.println(kelvinToCelsius);
+        CelsiusFahrenheitConverter fahrenheitToCelsius = new CelsiusFahrenheitConverter();
+        System.out.println(fahrenheitToCelsius.ConverterToCelsius(50));
     }
 
-    public static double FahrenheitToCelsius(double fahrenheit) {
-        System.out.println("Your temperature converted from Fahrenheit to Celsius: ");
-        return (fahrenheit - Converter.FAHRENHEIT_CONST) / Converter.FAHRENHEIT_COEFFICIENT;
-    }
 
-    public static double KelvinToCelsius(double kelvin) {
-        System.out.println("Your temperature converted from Kelvin to Celsius: ");
-        return (kelvin - Converter.KELVIN_CONST);
-    }
 }

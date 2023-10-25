@@ -5,9 +5,8 @@ public abstract class Converter {
     public static final double FAHRENHEIT_COEFFICIENT = 1.8;
     public static final double FAHRENHEIT_CONST = 32;
 
-    public abstract double CelsiusToFahrenheit(double celsius);
+    public abstract double ConverterToCelsius(double temperature);
 
-    public abstract double CelsiusToKelvin(double celsius);
-//    public abstract double FahrenheitToCelsius(double fahrenheit);
-//    public abstract double KelvinToCelsius(double kelvin);
+    public abstract double ConverterToAnother(double temperature);
+
 }

@@ -1,5 +1,7 @@
 package ua.vodafone.homeworks.classes;
 
+import java.util.Objects;
+
 public class Point implements PointCalculable, Cloneable {
     private int x;
     private int y;
@@ -30,19 +32,32 @@ public class Point implements PointCalculable, Cloneable {
         this.y = y;
     }
 
-    public int distanceTo(Point another) { //відстань до іншої точки; відстань = √((x2 - x1)² + (y2 - y1)²)
+    public double distanceTo(Point another) { //відстань до іншої точки; відстань = √((x2 - x1)² + (y2 - y1)²)
         return distanceBetween(this, another);
     }
 
-    public int distanceBetween(Point one, Point another) {
-        int deltaX = this.x - another.x;
-        int deltaY = this.y - another.y;
-        return (int) Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    public double distanceBetween(Point one, Point another) {
+        double deltaX = this.x - another.x;
+        double deltaY = this.y - another.y;
+        return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Point other = (Point) obj;
+        return x == other.x && y == other.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+
+    @Override
+    public Point clone() throws CloneNotSupportedException {
+        return (Point) super.clone();
     }
 
     @Override
@@ -52,30 +67,43 @@ public class Point implements PointCalculable, Cloneable {
 
     public static void main(String[] args) throws CloneNotSupportedException {
         Point a = new Point(4, 5); //точка на площині
-        System.out.println("a " + a.toString()); //отримати поточні координати
+        System.out.println("a " + a); //отримати поточні координати
         Point b = new Point(1, 2);
-        System.out.println("b " + b.toString());
+        System.out.println("b " + b);
 
 
-        int distanceTo = a.distanceTo(b);
+        double distanceTo = a.distanceTo(b);
         System.out.println("Distance from a to b: " + distanceTo);
 
         a.setX(9);
         a.setY(6);
-        System.out.println("a " + a.toString()); //отримати поточні координати після зміни координати
-        Point fakePoint = new Point(7, 3);
+        System.out.println("a " + a); //отримати поточні координати після зміни координати
 
-        int distanceBetween = fakePoint.distanceBetween(a, b);
-        System.out.println("Distance between a and b: " + distanceBetween);
+        System.out.println("Distance between a and b: " + a.distanceBetween(a, b));
+
+        boolean areDifferent = a == b;
+        System.out.println("\nAre a and b the same objects? " + areDifferent);//ОР - false, т.к. объекты разные, значения равны
 
         boolean equalPoint = a.equals(b);
-        System.out.println("Result of comparison points a and b: " + equalPoint);
+        System.out.println("Result of comparison the coordinates a and b: " + equalPoint); //ОР - false, т.к. сравниваем координаты
 
-        Point copiedPoint = new Point(fakePoint);
-        System.out.println("Copied fakePoint is " + copiedPoint);
 
-        Point clonedPoint = (Point) fakePoint.clone();
-        System.out.println("Cloned fakePoint is " + clonedPoint);
+        Point copiedPoint = new Point(a);
+        System.out.println("\nCopied fakePoint is " + copiedPoint);
 
+        boolean equalCopiedObjects = copiedPoint == a;
+        System.out.println("Are copiedPoint and a the same objects? " + equalCopiedObjects); //ОР - false, т.к. объекты разные, значения равны
+
+        boolean equalCopiedValues = copiedPoint.equals(a);
+        System.out.println("Result of comparison the coordinates copiedPoint and a: " + equalCopiedValues); //ОР - true, т.к. сравниваем координаты
+
+        Point clonedPoint = a.clone();
+        System.out.println("\nCloned fakePoint is " + clonedPoint);
+
+        boolean equalClonedObjects = copiedPoint == a;
+        System.out.println("Are clonedPoint and a the same objects? " + equalClonedObjects); //ОР - false, т.к. объекты разные, значения равны
+
+        boolean equalClonedValues = copiedPoint.equals(a);
+        System.out.println("Result of comparison the coordinates clonedPoint and a: " + equalClonedValues); //ОР - true, т.к. сравниваем
     }
 }

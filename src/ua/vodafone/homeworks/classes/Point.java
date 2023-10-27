@@ -36,16 +36,19 @@ public class Point implements PointCalculable, Cloneable {
         return distanceBetween(this, another);
     }
 
-    public double distanceBetween(Point one, Point another) {
-        double deltaX = this.x - another.x;
-        double deltaY = this.y - another.y;
+    public static double distanceBetween(Point one, Point another) {
+        if (one == null || another == null) {
+            return -1;
+        }
+        double deltaX = one.x - another.x;
+        double deltaY = one.y - another.y;
         return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) {return true;}
+        if (obj == null || getClass() != obj.getClass()) {return false;}
         Point other = (Point) obj;
         return x == other.x && y == other.y;
     }
@@ -79,7 +82,7 @@ public class Point implements PointCalculable, Cloneable {
         a.setY(6);
         System.out.println("a " + a); //отримати поточні координати після зміни координати
 
-        System.out.println("Distance between a and b: " + a.distanceBetween(a, b));
+        System.out.println("Distance between a and b: " + distanceBetween(a, b));
 
         boolean areDifferent = a == b;
         System.out.println("\nAre a and b the same objects? " + areDifferent);//ОР - false, т.к. объекты разные, значения равны

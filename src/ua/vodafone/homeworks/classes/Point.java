@@ -2,7 +2,7 @@ package ua.vodafone.homeworks.classes;
 
 import java.util.Objects;
 
-public class Point implements PointCalculable, Cloneable {
+public class Point implements Cloneable {
     private int x;
     private int y;
 
@@ -34,6 +34,7 @@ public class Point implements PointCalculable, Cloneable {
 
     public double distanceTo(Point another) { //відстань до іншої точки; відстань = √((x2 - x1)² + (y2 - y1)²)
         return distanceBetween(this, another);
+
     }
 
     public static double distanceBetween(Point one, Point another) {
@@ -43,12 +44,17 @@ public class Point implements PointCalculable, Cloneable {
         double deltaX = one.x - another.x;
         double deltaY = one.y - another.y;
         return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {return true;}
-        if (obj == null || getClass() != obj.getClass()) {return false;}
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
         Point other = (Point) obj;
         return x == other.x && y == other.y;
     }

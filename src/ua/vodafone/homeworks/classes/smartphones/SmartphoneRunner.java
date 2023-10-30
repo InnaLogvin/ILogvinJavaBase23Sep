@@ -4,6 +4,7 @@ public class SmartphoneRunner {
 
     public static void main(String[] args) {
         String phoneNumber = "0504682101";
+        String smsText = "Hi here!";
         String browserIPhone = "Safari";
         String browserAndroid = "Chrome";
         int osVersion = 11;
@@ -12,13 +13,13 @@ public class SmartphoneRunner {
                 new Androids("Samsung", "S23"),
                 new Androids("Xiaomi", "Note 12"),
                 new Androids("Xiaomi", "Redmi A2"),
-                new iPhones("13 mini"),
-                new iPhones("14 Pro"),
-                new iPhones("15 Plus")
+                new Iphone("13 mini"),
+                new Iphone("14 Pro"),
+                new Iphone("15 Plus")
         };
         for (Smartphones phone : phones) {
             phone.call(phoneNumber);
-            phone.sms(phoneNumber);
+            phone.sms(phoneNumber, smsText);
         }
         System.out.println();
 
@@ -30,7 +31,7 @@ public class SmartphoneRunner {
             phones[i].internet(browserIPhone);
         }
 
-        ((iPhones) phones[3]).checkOsVersion(osVersion);
+        ((Iphone) phones[3]).checkOsVersion(osVersion);
         ((Androids) phones[0]).checkOsVersion(osVersion);
     }
 }

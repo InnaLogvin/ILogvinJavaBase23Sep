@@ -1,10 +1,10 @@
 package ua.vodafone.homeworks.classes.smartphones;
 
 public interface Smartphones {
-    public void call(String phoneNumber);
+    void call(String phoneNumber);
 
-    public void sms(String phoneNumber);
+    void sms(String phoneNumber, String text);
 
-    public void internet(String browser);
+    void internet(String browser);
 
 }

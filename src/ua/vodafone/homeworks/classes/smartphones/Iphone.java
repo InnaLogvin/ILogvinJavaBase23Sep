@@ -1,9 +1,9 @@
 package ua.vodafone.homeworks.classes.smartphones;
 
-public class iPhones implements Smartphones, IOs {
+public class Iphone implements Smartphones, IOs {
     private final String model;
 
-    public iPhones(String model) {
+    public Iphone(String model) {
 
         this.model = model;
 
@@ -15,8 +15,8 @@ public class iPhones implements Smartphones, IOs {
     }
 
     @Override
-    public void sms(String phoneNumber) {
-        System.out.println("Sending SMS from iPhone " + model + " to " + phoneNumber);
+    public void sms(String phoneNumber, String text) {
+        System.out.println("Sending SMS '" + text + "' from iPhone " + model + " to " + phoneNumber);
     }
 
     @Override

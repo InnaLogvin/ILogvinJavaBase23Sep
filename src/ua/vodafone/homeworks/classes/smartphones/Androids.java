@@ -17,8 +17,8 @@ public class Androids implements Smartphones, LinuxOS {
     }
 
     @Override
-    public void sms(String phoneNumber) {
-        System.out.println("Sending SMS from " + name + " " + model + " to " + phoneNumber);
+    public void sms(String phoneNumber, String text) {
+        System.out.println("Sending SMS '" + text + "' from " + name + " " + model + " to " + phoneNumber);
     }
 
     @Override

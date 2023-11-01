@@ -1,4 +1,4 @@
-package ua.vodafone.homeworks.classes;
+package ua.vodafone.homeworks.classes.converter;
 
 public class CelsiusFahrenheitConverter extends Converter {
     private static final double FAHRENHEIT_COEFFICIENT = 1.8;

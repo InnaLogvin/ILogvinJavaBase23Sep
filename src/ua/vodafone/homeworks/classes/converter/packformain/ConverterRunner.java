@@ -1,7 +1,7 @@
-package ua.vodafone.homeworks.packformain;
+package ua.vodafone.homeworks.classes.converter.packformain;
 
-import ua.vodafone.homeworks.classes.CelsiusKelvinConverter;
-import ua.vodafone.homeworks.classes.CelsiusFahrenheitConverter;
+import ua.vodafone.homeworks.classes.converter.CelsiusKelvinConverter;
+import ua.vodafone.homeworks.classes.converter.CelsiusFahrenheitConverter;
 
 public class ConverterRunner {
     public static void main(String[] args) {

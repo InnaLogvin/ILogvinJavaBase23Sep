@@ -1,4 +1,4 @@
-package ua.vodafone.homeworks;
+package ua.vodafone.homeworks.beforeoop;
 
 import java.util.Scanner;
 

@@ -19,7 +19,7 @@ public class PointTest {
         b = new Point(2, 5);
         c = null;
         d = null;
-        expectedDistance = 1.4142135623730951; // ОР расстояние между a і b
+        expectedDistance = 1.4142135623730951; // ОР расстояние между a и b
     }
 
     @Test

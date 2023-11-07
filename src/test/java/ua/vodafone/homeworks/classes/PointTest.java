@@ -7,26 +7,26 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PointTest {
-    private final double EXPECTEDDISTANCE = 1.4142135623730951;
-    private Point pointA;
-    private Point pointB;
+    private final double EXPECTED_DISTANCE = 1.4142135623730951;
+    private Point aPoint;
+    private Point bPoint;
 
     @BeforeEach
     void setUp() {
-        pointA = new Point(3, 4);
-        pointB = new Point(2, 5);
+        aPoint = new Point(3, 4);
+        bPoint = new Point(2, 5);
     }
 
     @Test
     void distanceToTest() {// проверка на равность расстояния из ОР и из метода
-        double actualDistance = pointA.distanceTo(pointB);
-        Assertions.assertEquals(EXPECTEDDISTANCE, actualDistance);
+        double actualDistance = aPoint.distanceTo(bPoint);
+        Assertions.assertEquals(EXPECTED_DISTANCE, actualDistance);
     }
 
     @Test
     void distanceToNullTest() { //точка another = null, ждем результат -1 как в ритерн
 
-        double actualDistance = pointA.distanceTo(null);
+        double actualDistance = aPoint.distanceTo(null);
 
         assertEquals(-1, actualDistance);
 
@@ -34,14 +34,14 @@ public class PointTest {
 
     @Test
     void distanceBetweenTest() {// проверка на равность расстояния из ОР и из метода
-        double actualDistance = Point.distanceBetween(pointA, pointB);
-        Assertions.assertEquals(EXPECTEDDISTANCE, actualDistance);
+        double actualDistance = Point.distanceBetween(aPoint, bPoint);
+        Assertions.assertEquals(EXPECTED_DISTANCE, actualDistance);
     }
 
     @Test
     void distanceBetweenNullPointATest() { //точка а = налл, ждем результат -1 как в ритерн
 
-        double actualDistance = Point.distanceBetween(null, pointB);
+        double actualDistance = Point.distanceBetween(null, bPoint);
 
         assertEquals(-1, actualDistance);
 
@@ -50,7 +50,7 @@ public class PointTest {
     @Test
     void distanceToNullPointBTest() {//точка б = налл, ждем результат -1 как в ритерн
 
-        double actualDistance = Point.distanceBetween(pointA, null);
+        double actualDistance = Point.distanceBetween(aPoint, null);
 
         assertEquals(-1, actualDistance);
     }

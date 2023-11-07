@@ -1,7 +1,6 @@
 package ua.vodafone.homeworks.classes.musicstyles;
 
 public class PopMusic extends MusicStyles {
-    private final String name;
 
     public PopMusic(String name) {
 

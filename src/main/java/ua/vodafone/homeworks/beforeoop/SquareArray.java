@@ -9,16 +9,21 @@ public class SquareArray {
         }
         int sum = 0;
         int totalElements = 0;
+        boolean isNan = false;
         for (int i = 0; i < matrix.length; i++) {
             if (matrix[i] != null) {
                 for (int j = 0; j < matrix[i].length; j++) {
                     sum += matrix[i][j];
                     totalElements++;
                 }
+            } else {
+                isNan = true;
+                break;
             }
         }
-        return (double) sum / totalElements;
+        return isNan ? Double.NaN : (double) sum / totalElements;
     }
+
 
     public static boolean isSquareMatrix(int[][] matrix) {
         if (matrix == null || matrix.length == 0) {

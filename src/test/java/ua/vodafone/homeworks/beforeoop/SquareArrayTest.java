@@ -1,6 +1,5 @@
 package ua.vodafone.homeworks.beforeoop;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -38,6 +37,7 @@ class SquareArrayTest {
         double actualAverage = SquareArray.calculateAverage(new int[][]{{}, {}, {}});
         assertTrue(Double.isNaN(actualAverage));//Not-a-Number, true if average is NaN
     }
+
     @Test
     void calculateAverageNullValueTest() {
         double actualAverage = SquareArray.calculateAverage(new int[][]{{1, 2, 3}, null, {7, 8, 9}});

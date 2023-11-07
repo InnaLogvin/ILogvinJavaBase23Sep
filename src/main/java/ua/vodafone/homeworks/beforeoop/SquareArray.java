@@ -11,17 +11,15 @@ public class SquareArray {
         int totalElements = 0;
         boolean isNan = false;
         for (int i = 0; i < matrix.length; i++) {
-            if (matrix[i] != null) {
-                for (int j = 0; j < matrix[i].length; j++) {
-                    sum += matrix[i][j];
-                    totalElements++;
-                }
-            } else {
-                isNan = true;
-                break;
+            if (matrix[i] == null) {
+                return Double.NaN;
+            }
+            for (int j = 0; j < matrix[i].length; j++) {
+                sum += matrix[i][j];
+                totalElements++;
             }
         }
-        return isNan ? Double.NaN : (double) sum / totalElements;
+        return (double) sum / totalElements;
     }
 
 

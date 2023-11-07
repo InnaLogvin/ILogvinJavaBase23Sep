@@ -4,12 +4,17 @@ public class SquareArray {
 
 
     public static double calculateAverage(int[][] matrix) {
+        if (matrix == null || matrix.length == 0) {
+            return Double.NaN;
+        }
         int sum = 0;
         int totalElements = 0;
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                sum += matrix[i][j];
-                totalElements++;
+            if (matrix[i] != null) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    sum += matrix[i][j];
+                    totalElements++;
+                }
             }
         }
         return (double) sum / totalElements;
@@ -29,5 +34,4 @@ public class SquareArray {
 
         return true;
     }
-
 }

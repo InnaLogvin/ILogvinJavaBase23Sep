@@ -1,9 +1,11 @@
 package ua.vodafone.homeworks.classes.vendingmachine;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 public class VendingMachine {
-    enum Drinks {
+    public enum Drinks {
         COFFEE("coffee", 40),
         TEA("tea", 30),
         LEMONADE("lemonade", 35),
@@ -32,6 +34,14 @@ public class VendingMachine {
         }
     }
 
+    public void printOption() {
+        System.out.println("Choose your drink: ");
+        Drinks[] drinksOptions = Drinks.values();
+        for (Drinks value : drinksOptions) {
+            System.out.println(value.getName() + " " + value.getPrice() + " UAH");
+        }
+    }
+
     String preparingDrinks(Drinks drink) {
         switch (drink) {
             case COFFEE:
@@ -50,39 +60,41 @@ public class VendingMachine {
         throw new IllegalArgumentException("Unexpected drink");
     }
 
-    public void printOption() {
-        System.out.println("Choose your drink: ");
-        Drinks[] drinksOptions = Drinks.values();
-        for (Drinks value : drinksOptions) {
-            System.out.println(value.getName() + " " + value.getPrice() + " UAH");
+
+    private String calculateTotal(List<Drinks> orderedDrinks) {
+        double totalAmount = 0;
+        int totalDrinks = orderedDrinks.size();
+
+        for (Drinks drink : orderedDrinks) {
+            totalAmount += drink.getPrice();
         }
+
+        return "Total drinks ordered: " + totalDrinks + "\nTotal amount to pay: " + totalAmount + " UAH";
     }
 
     public void executeOrder() {
         Scanner scanner = new Scanner(System.in);
-        double totalAmount = 0;
-        int totalDrinks = 0;
+        List<Drinks> orderedDrinks = new ArrayList<>();
 
         while (true) {
             System.out.println("Enter drink's name or 'exit' to finish: ");
             String userChoice = scanner.nextLine();
 
-            if (userChoice.equals("exit")) {
+            if (userChoice.equalsIgnoreCase("exit")) {
                 break;
             }
 
             try {
                 Drinks selectedDrink = Drinks.valueOf(userChoice.toUpperCase());
                 System.out.println(preparingDrinks(selectedDrink));
-                totalAmount += selectedDrink.getPrice();
-                totalDrinks++;
+                orderedDrinks.add(selectedDrink);
             } catch (IllegalArgumentException e) {
                 System.out.println("Invalid choice. Please select a valid option.");
             }
         }
 
-        System.out.println("Total drinks ordered: " + totalDrinks);
-        System.out.println("Total amount to pay: " + totalAmount + " UAH");
-
+        String total = calculateTotal(orderedDrinks);
+        System.out.println(total);
     }
+
 }

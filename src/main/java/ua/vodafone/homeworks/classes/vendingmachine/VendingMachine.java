@@ -42,7 +42,7 @@ public class VendingMachine {
         }
     }
 
-    String preparingDrinks(Drinks drink) {
+    public static String preparingDrinks(Drinks drink) {
         switch (drink) {
             case COFFEE:
                 return "Making " + drink.getName() + "...";
@@ -72,27 +72,8 @@ public class VendingMachine {
         return "Total drinks ordered: " + totalDrinks + "\nTotal amount to pay: " + totalAmount + " UAH";
     }
 
-    public void executeOrder() {
-        Scanner scanner = new Scanner(System.in);
-        List<Drinks> orderedDrinks = new ArrayList<>();
 
-        while (true) {
-            System.out.println("Enter drink's name or 'exit' to finish: ");
-            String userChoice = scanner.nextLine();
-
-            if (userChoice.equalsIgnoreCase("exit")) {
-                break;
-            }
-
-            try {
-                Drinks selectedDrink = Drinks.valueOf(userChoice.toUpperCase());
-                System.out.println(preparingDrinks(selectedDrink));
-                orderedDrinks.add(selectedDrink);
-            } catch (IllegalArgumentException e) {
-                System.out.println("Invalid choice. Please select a valid option.");
-            }
-        }
-
+    public void printTotals(List<Drinks> orderedDrinks) {
         String total = calculateTotal(orderedDrinks);
         System.out.println(total);
     }
